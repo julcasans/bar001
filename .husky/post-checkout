@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+# Guarda el nombre de la rama a la que se ha hecho checkout
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+# Verifica si la rama comienza con "release/"
+if echo "$BRANCH_NAME" | grep -qE "^release/"; then
+
+  # Verifica si el archivo .changeset/pre.json existe
+  if [ -f .changeset/pre.json ]; then  
+    echo "Switched to a release branch. Working in rc mode"
+  else
+    echo "Switched to a release branch. Entering in rc mode"
+    npm run rc:on
+  fi
+else
+  echo "Not a release branch. Skipping 'npm run rc:on'."
+fi
