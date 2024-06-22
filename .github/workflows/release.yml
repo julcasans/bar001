@@ -39,6 +39,11 @@ jobs:
         run: npm run version
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
 
+      - name: Commit version
+        run: git add --all && git commit -m "Release version"
+
+        # This expects you to have a script called release which does a build for your packages and calls changeset publish
+
       - name: Publish
         run: npm run release
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
