@@ -1,5 +1,19 @@
 # bottle002
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  - bottle004@1.2.0
+
+## 1.0.2-beta.0
+
+### Patch Changes
+
+- Updated dependencies
+  - bottle004@1.2.0-beta.0
+
 ## 1.0.1
 
 ### Patch Changes

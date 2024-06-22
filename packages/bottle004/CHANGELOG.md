@@ -1,5 +1,17 @@
 # bottle004
 
+## 1.2.0
+
+### Minor Changes
+
+- name
+
+## 1.2.0-beta.0
+
+### Minor Changes
+
+- name
+
 ## 1.1.0
 
 ### Minor Changes
