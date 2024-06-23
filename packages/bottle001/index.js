@@ -1,4 +1,4 @@
-import { getFullName } from 'bottle002';
+import { getFullName, getSurnameName } from 'bottle002';
 import { getSurname } from 'bottle003';
 import { getName } from 'bottle004';
 
@@ -17,4 +17,5 @@ export function getShortName() {
 }
 
 console.log(getTitleAndFullName());
+console.log(getSurnameName());
 console.log(getShortName());
