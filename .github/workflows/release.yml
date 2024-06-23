@@ -52,10 +52,22 @@ jobs:
       - name: Git status
         run: git status
 
-      - name: Commit version
-        run: git add --all && git commit -m "Release version"
+      - name: Stage files
+        run: git add --all
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Git status
+        run: git status
+
+      - name: Commit version
+        run: git commit -m "Release version"
+        env:
+          HUSKY: 0
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Git status
+        run: git status
 
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
 
