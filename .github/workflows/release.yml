@@ -38,6 +38,10 @@ jobs:
       - name: Create release version
         run: npm run version
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
+      - name: Set up Git identity
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
 
       - name: Commit version
         run: git add --all && git commit -m "Release version"
