@@ -26,8 +26,13 @@ jobs:
 
         # this step should be executed only on branch release/x
       - name: Enter pre-release version
-        if: startsWith(github.ref, 'refs/heads/release/')
+        if: startsWith(github.ref, 'refs/heads/release')
         run: npm run rc:on
+
+      - name: Show github.ref value
+        run: echo "The value of github.ref is ${{ github.ref }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         # this step should be executed only on branch main
       - name: Exit pre-release version
