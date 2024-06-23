@@ -41,6 +41,8 @@ jobs:
 
       - name: Commit version
         run: git add --all && git commit -m "Release version"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
 
