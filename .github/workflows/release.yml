@@ -49,6 +49,9 @@ jobs:
       - name: Setup .npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
+      - name: Git status
+        run: git status
+
       - name: Commit version
         run: git add --all && git commit -m "Release version"
         env:
