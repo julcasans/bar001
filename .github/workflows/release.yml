@@ -70,7 +70,7 @@ jobs:
         run: git status
 
       - name: Git Push
-        run: git push origin HEAD:${{ github.ref }}
+        run: git push
 
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
 
