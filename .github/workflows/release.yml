@@ -10,8 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+      - name: Extract branch name from tag reference
+        id: extract_branch
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            TAG_NAME=${GITHUB_REF#refs/tags/}
+            # Aquí necesitas determinar a qué rama pertenece este tag.
+            # Esto es solo un ejemplo y probablemente necesites ajustarlo.
+            BRANCH_NAME=$(git branch --contains tags/$TAG_NAME | sed -n 1p | xargs)
+            echo "::set-output name=branch::$BRANCH_NAME"
+          else
+            echo "::set-output name=branch::$(echo ${GITHUB_REF#refs/heads/})"
+          fi
+
+      - name: Set up Git identity
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -40,11 +61,6 @@ jobs:
       - name: Create release version
         run: npm run version
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
-
-      - name: Set up Git identity
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
 
       - name: Setup .npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
