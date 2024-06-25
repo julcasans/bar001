@@ -14,15 +14,13 @@ jobs:
       - name: Extract branch name from tag reference
         id: extract_branch
         run: |
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            TAG_NAME=${GITHUB_REF#refs/tags/}
-            # Aquí necesitas determinar a qué rama pertenece este tag.
-            # Esto es solo un ejemplo y probablemente necesites ajustarlo.
-            BRANCH_NAME=$(git branch --contains tags/$TAG_NAME | sed -n 1p | xargs)
-            echo "::set-output name=branch::$BRANCH_NAME"
-          else
-            echo "::set-output name=branch::$(echo ${GITHUB_REF#refs/heads/})"
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          BRANCH_NAME=$(git branch -r --contains tags/$TAG_NAME | grep -v 'HEAD' | head -n 1 | sed 's/origin\///' | xargs)
+          if [ -z "$BRANCH_NAME" ]; then
+            echo "Branch not found for tag $TAG_NAME"
+            exit 1
           fi
+          echo "::set-output name=branch::$BRANCH_NAME"
 
       - name: Set up Git identity
         run: |
