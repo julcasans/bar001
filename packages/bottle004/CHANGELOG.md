@@ -1,5 +1,23 @@
 # bottle004
 
+## 2.0.0-rc.0
+
+### Major Changes
+
+- new full name
+
+### Minor Changes
+
+- 39e5c98: new minor
+- 3cdbf6e: new function with surname name
+- 1fbf0f8: minor version
+- c5dee3e: new name
+- 17483c5: minor
+
+### Patch Changes
+
+- 5d04e06: action
+
 ## 1.2.0
 
 ### Minor Changes
