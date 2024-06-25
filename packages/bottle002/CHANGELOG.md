@@ -1,5 +1,27 @@
 # bottle002
 
+## 1.1.0
+
+### Minor Changes
+
+- 39e5c98: new minor
+- 3cdbf6e: new function with surname name
+- 1fbf0f8: minor version
+- 7e336bb: minot for all
+
+### Patch Changes
+
+- Updated dependencies [39e5c98]
+- Updated dependencies [3cdbf6e]
+- Updated dependencies [1fbf0f8]
+- Updated dependencies [7e336bb]
+- Updated dependencies
+- Updated dependencies [c5dee3e]
+- Updated dependencies [17483c5]
+- Updated dependencies [5d04e06]
+  - bottle003@2.0.0
+  - bottle004@2.0.0
+
 ## 1.1.0-rc.1
 
 ### Minor Changes
