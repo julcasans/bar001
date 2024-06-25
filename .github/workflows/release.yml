@@ -31,15 +31,15 @@ jobs:
       #     fi
       #     echo "::set-output name=branch::$BRANCH_NAME"
 
-      - name: Set up Git identity
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
       - name: Checkout Repo
         uses: actions/checkout@v4
         # with:
         #   ref: ${{ steps.extract_branch.outputs.branch }}
+
+      - name: Set up Git identity
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
