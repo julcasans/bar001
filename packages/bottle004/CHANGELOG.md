@@ -1,5 +1,11 @@
 # bottle004
 
+## 2.0.0-rc.1
+
+### Minor Changes
+
+- 7e336bb: minot for all
+
 ## 2.0.0-rc.0
 
 ### Major Changes

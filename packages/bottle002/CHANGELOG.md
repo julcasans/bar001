@@ -1,5 +1,17 @@
 # bottle002
 
+## 1.1.0-rc.1
+
+### Minor Changes
+
+- 7e336bb: minot for all
+
+### Patch Changes
+
+- Updated dependencies [7e336bb]
+  - bottle003@2.0.0-rc.1
+  - bottle004@2.0.0-rc.1
+
 ## 1.1.0-rc.0
 
 ### Minor Changes
