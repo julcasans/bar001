@@ -69,9 +69,6 @@ jobs:
         run: npm run version
         # This expects you to have a script called release which does a build for your packages and calls changeset publish
 
-      - name: Setup .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-
       - name: Git status
         run: git status
 
@@ -95,7 +92,8 @@ jobs:
       - name: Git Push
         run: git push origin HEAD:release-candidate
 
-      # This expects you to have a script called release which does a build for your packages and calls changeset publish
+      - name: Setup .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
       - name: Publish
         run: npm run release
