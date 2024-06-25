@@ -14,11 +14,18 @@ jobs:
       - name: Extract branch name from tag reference
         id: extract_branch
         run: |
-          TAG_NAME=${GITHUB_REF#refs/tags/}
-          BRANCH_NAME=$(git branch -r --contains tags/$TAG_NAME | grep -v 'HEAD' | head -n 1 | sed 's/origin\///' | xargs)
-          if [ -z "$BRANCH_NAME" ]; then
-            echo "Branch not found for tag $TAG_NAME"
-            exit 1
+          if [[ $GITHUB_REF =~ refs/tags/release\.([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+            X=${BASH_REMATCH[1]}
+            Y=${BASH_REMATCH[2]}
+            Z=${BASH_REMATCH[3]}
+            BRANCH_NAME="release/$X.$Y.$Z"
+          else
+            TAG_NAME=${GITHUB_REF#refs/tags/}
+            BRANCH_NAME=$(git branch -r --contains tags/$TAG_NAME | grep -v 'HEAD' | head -n 1 | sed 's/origin\///' | xargs)
+            if [ -z "$BRANCH_NAME" ]; then
+              echo "Branch not found for tag $TAG_NAME"
+              exit 1
+            fi
           fi
           echo "::set-output name=branch::$BRANCH_NAME"
 
