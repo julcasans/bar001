@@ -14,7 +14,9 @@ jobs:
       - name: Extract branch name from tag reference
         id: extract_branch
         run: |
-          if [[ $GITHUB_REF =~ refs/tags/release\.([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+          if [[ $GITHUB_REF =~ refs/tags/release\.([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            BRANCH_NAME="main"
+          elif [[ $GITHUB_REF =~ refs/tags/release\.([0-9]+)\.([0-9]+)\.([0-9]+)-rc\.([0-9]+)$ ]]; then
             X=${BASH_REMATCH[1]}
             Y=${BASH_REMATCH[2]}
             Z=${BASH_REMATCH[3]}
