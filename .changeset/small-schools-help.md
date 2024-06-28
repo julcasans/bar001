@@ -3,4 +3,4 @@
 "bottle004": major
 ---
 
-new full name
+new major

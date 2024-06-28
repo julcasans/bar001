@@ -1,3 +1,3 @@
-export function getName() {
-  return 'Luis David';
+export function getNames() {
+  return 'Ana Luisa';
 }
