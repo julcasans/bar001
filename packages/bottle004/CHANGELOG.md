@@ -1,5 +1,12 @@
 # bottle004
 
+## 3.0.0-rc.0
+
+### Major Changes
+
+- 11085e1: major name
+- af90a48: new major
+
 ## 2.0.0
 
 ### Major Changes

@@ -1,5 +1,19 @@
 # bottle001
 
+## 2.0.0-rc.0
+
+### Major Changes
+
+- 11085e1: major name
+
+### Patch Changes
+
+- Updated dependencies [11085e1]
+- Updated dependencies [af90a48]
+  - bottle002@2.0.0-rc.0
+  - bottle004@3.0.0-rc.0
+  - bottle003@3.0.0-rc.0
+
 ## 1.2.0
 
 ### Minor Changes
