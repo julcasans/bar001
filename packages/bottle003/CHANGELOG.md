@@ -1,5 +1,11 @@
 # bottle003
 
+## 3.0.0-rc.0
+
+### Major Changes
+
+- af90a48: new major
+
 ## 2.0.0
 
 ### Major Changes

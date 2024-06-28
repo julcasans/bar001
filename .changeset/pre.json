@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "rc",
+  "initialVersions": {
+    "bottle001": "1.2.0",
+    "bottle002": "1.1.0",
+    "bottle003": "2.0.0",
+    "bottle004": "2.0.0"
+  },
+  "changesets": [
+    "grumpy-zoos-turn",
+    "small-schools-help"
+  ]
+}
